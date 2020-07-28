@@ -7,6 +7,8 @@ import Icon from '../../assets/images/Icon.png'
 
 import { FaEnvelope, FaKey } from 'react-icons/fa'
 
+import { useHistory } from 'react-router-dom'
+
 import { makeLogin } from '../../services/users'
 
 export default function Home() {
@@ -15,11 +17,13 @@ export default function Home() {
         password: '',
     })
     
+    const history = useHistory();
+    
     const login = async () => {
-        console.log('email', state.email);
-        console.log('password', state.password);
+        console.log('entrei aqui');
         try {
             const result = await makeLogin(state.email, state.password)
+            history.push('/course');
             console.log('retorno login', result);
         } catch (err) {
             console.log('Houve um erro ao realizar o login', err)
@@ -54,12 +58,12 @@ export default function Home() {
                         type="password"
                         placeholder="Senha" 
                         value={state.password} 
-                        onChange={(e) => {
+                        onChange={(e) => 
                             setState({
                                 ...state,
                                 password: e.target.value
                             })
-                        }}
+                        }
                     ></input>
                 </Input>
                 <ButtonSubmit

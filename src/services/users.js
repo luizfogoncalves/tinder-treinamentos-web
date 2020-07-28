@@ -3,7 +3,7 @@ import axios from 'axios'
 import { config } from '../config'
 
 export const makeLogin = async (email, password) => {
-    const result = await axios.post(`https://${config.API_ID}.${config.URL_AMAZON}/${config.STAGE}/users/login`,
+    const result = await axios.post(`https://${config.API_ID}.${config.URL_AMAZON}/${config.STAGE}/user/login`,
     {
         email,
         password
