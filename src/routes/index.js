@@ -8,8 +8,12 @@ import Courses from '../pages/Courses'
 export default function Routes() {
     return(
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/course" component={Courses} />
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/course">
+                <Courses />
+            </Route>
         </Switch>
     )
 }

@@ -22,9 +22,9 @@ export default function Home() {
     const login = async () => {
         console.log('entrei aqui');
         try {
-            const result = await makeLogin(state.email, state.password)
+            // const result = await makeLogin(state.email, state.password)
             history.push('/course');
-            console.log('retorno login', result);
+            // console.log('retorno login', result);
         } catch (err) {
             console.log('Houve um erro ao realizar o login', err)
         }
