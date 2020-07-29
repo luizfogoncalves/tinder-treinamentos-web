@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Container, ModalLogin, ImageBlock , Form, Input, ButtonSubmit } from './styles'
 
@@ -16,15 +16,20 @@ export default function Home() {
         email: '',
         password: '',
     })
-    
+
     const history = useHistory();
     
     const login = async () => {
         console.log('entrei aqui');
         try {
             // const result = await makeLogin(state.email, state.password)
+            await sessionStorage.setItem('user', JSON.stringify({
+                name: 'Luiz',
+                user: 'user'
+            }))
             history.push('/course');
-            // console.log('retorno login', result);
+            // console.log('retorno login', result.data);
+            
         } catch (err) {
             console.log('Houve um erro ao realizar o login', err)
         }

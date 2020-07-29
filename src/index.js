@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes'
 import './index.css';
 import Home from './pages/Home';
 import history from './services/history'
 
+import { Provider } from 'react-redux'
+
+import store from './store'
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Router history={history}>
+  <Provider store={store}>
+    <BrowserRouter history={history}>
       <Routes />
-    </Router>
-  </React.StrictMode>,
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
